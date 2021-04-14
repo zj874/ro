@@ -1,0 +1,52 @@
+.logo {
+  padding: 30px 50px;
+}
+
+.logo .line {
+  width: 2px;
+  height: 53px;
+  background: #717171;
+}
+
+.main {
+  height: 700px;
+  background: url("../images/bj.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.login-box {
+  width: 430px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  background: #F2F7FD;
+}
+
+.login-box .title {
+  height: 60px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-image: linear-gradient(#428BCA, #387EBB);
+  /* background: linear-gradient(0deg, #428BCA, #387EBB); */
+}
+
+.login-box .btn-box {
+  height: 50px;
+}
+
+.login-box .btn-box input {
+  border: none;
+}
+
+.login-box .btn-box input:focus { 
+  outline: none; 
+}
+
+.login-box .btn-box input::placeholder {
+  color: #bababa;
+}
+
+.login-box .horizontal-line {
+  width: 100%;
+  height: 1px;
+  background: #AED7FA;
+}

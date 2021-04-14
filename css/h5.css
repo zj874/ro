@@ -1,0 +1,43 @@
+body {
+  min-width: 320px;
+  max-width: 750px;
+  width: 100%;
+}
+
+.wrap {
+  height: calc(100vh);
+  background: url("../images/h5-bg.jpg") no-repeat center bottom;
+  background-size: cover;
+}
+
+.login-box {
+  top: calc(100vh - 580px);
+  left: 3%;
+  width: 94%;
+  border-radius: 8px;
+}
+
+.login-box .logo {
+  top: -100px;
+  width: 40%;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.inp-box {
+  border: none;
+  border-bottom: 1px solid #cccccc;
+}
+
+.inp-box input {
+  border: none;
+}
+
+.inp-box input:focus { 
+  outline: none; 
+}
+
+.inp-box input::placeholder {
+  color: #bababa;
+}
