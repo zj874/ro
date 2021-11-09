@@ -18,7 +18,7 @@
     <div class="w100 pt20 pb20 pl20 pr20 flex-box" v-loading="loading">
       <div class="flex-1 mr20">
         <p class="w100 mb10 flex-box al-b font-16" style="height: 40px;">输入要替换的内容：</p>
-        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="请输入内容" v-model="text">
+        <el-input type="textarea" :autosize="{ minRows: 30, maxRows: 30 }" placeholder="请输入内容" v-model="text">
         </el-input>
       </div>
       <div class="flex-box al-t" style="padding-top: 320px;">
@@ -26,29 +26,21 @@
       </div>
       </el-button>
       <div class="ml10 mr10 flex-1">
+        <p class="w100 mb10 flex-box al-b font-16" style="height: 40px;">第一列：</p>
         <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text1"></el-input>
       </div>
       <div class="ml10 mr10 flex-1">
+        <p class="w100 mb10 flex-box al-b font-16" style="height: 40px;">第二列：</p>
         <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text2"></el-input>
       </div>
       <div class="ml10 mr10 flex-1">
+        <p class="w100 mb10 flex-box al-b font-16" style="height: 40px;">第三列：</p>
         <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text3"></el-input>
       </div>
       <div class="ml10 mr10 flex-1">
+        <p class="w100 mb10 flex-box al-b font-16" style="height: 40px;">第四列：</p>
         <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text4"></el-input>
       </div>
-      <div class="ml10 mr10 flex-1">
-        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text5"></el-input>
-      </div>
-      <!-- <div class="flex-1 ml20">
-        <p class="w100 mb10 flex-box al-c font-14">
-          <span class="green">替换规则：</span>
-          <el-input class="flex-1" type="text" placeholder="" v-model="jurText">
-          </el-input>
-        </p>
-        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="newText" readonly>
-        </el-input>
-      </div> -->
     </div>
   </div>
 </body>
@@ -67,14 +59,11 @@
         loading: false,
 
         text: "",
-        newText: "",
-        jurText: "# 0# 1000# 500# -360# 360# 0# 0# -360# -66#",
 
         text1: "",
         text2: "",
         text3: "",
         text4: "",
-        text5: "",
       };
     },
     computed: {},
@@ -95,7 +84,6 @@
           this.text2 += `${item[1]}\n`
           this.text3 += `${item[2]}\n`
           this.text4 += `${item[3]}\n`
-          this.text5 += `${item[4]}\n`
         });
         this.loading = false;
       }
