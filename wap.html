@@ -8,13 +8,13 @@
   <title></title>
 
   <link rel="stylesheet" href="./css/vant.css">
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <!-- <link rel="stylesheet" href="./css/base.css"> -->
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
 </head>
 
 <body>
   <div id="app" v-cloak>
-    <van-button type="primary">主要按钮</van-button>
+    <van-button type="primary" @click="showImage('https://img01.yzcdn.cn/vant/apple-1.jpg')">主要按钮</van-button>
   </div>
 </body>
 
@@ -28,9 +28,7 @@
     components: {},
     props: [],
     data() {
-      return {
-        loading: false,
-      };
+      return {};
     },
     computed: {},
     created() { },
@@ -39,7 +37,9 @@
     },
     destroyed() { },
     methods: {
-
+      showImage(src) {
+        vant.ImagePreview([src]);
+      }
     },
     watch: {},
     filters: {},

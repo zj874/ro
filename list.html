@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/element.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <p class="w100 mt20 tx-c font-18">你是不是脑壳有问题</p>
+    <div class="w100 pt20 pb20 pl20 pr20 flex-box" v-loading="loading">
+      <div class="flex-1 mr20">
+        <p class="w100 mb10 flex-box al-b font-16" style="height: 40px;">输入要替换的内容：</p>
+        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="请输入内容" v-model="text">
+        </el-input>
+      </div>
+      <div class="flex-box al-t" style="padding-top: 320px;">
+        <el-button size="mini" type="primary" @click="compText">开始转换<i class="el-icon-arrow-right el-icon--right"></i>
+      </div>
+      </el-button>
+      <div class="ml10 mr10 flex-1">
+        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text1"></el-input>
+      </div>
+      <div class="ml10 mr10 flex-1">
+        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text2"></el-input>
+      </div>
+      <div class="ml10 mr10 flex-1">
+        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text3"></el-input>
+      </div>
+      <div class="ml10 mr10 flex-1">
+        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text4"></el-input>
+      </div>
+      <div class="ml10 mr10 flex-1">
+        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="text5"></el-input>
+      </div>
+      <!-- <div class="flex-1 ml20">
+        <p class="w100 mb10 flex-box al-c font-14">
+          <span class="green">替换规则：</span>
+          <el-input class="flex-1" type="text" placeholder="" v-model="jurText">
+          </el-input>
+        </p>
+        <el-input type="textarea" :autosize="{ minRows: 30 }" placeholder="" v-model="newText" readonly>
+        </el-input>
+      </div> -->
+    </div>
+  </div>
+</body>
+
+<script src="./js/babel.min.js"></script>
+<script src="./js/vue.min.js"></script>
+<script src="./js/element.js"></script>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    name: "Login",
+    components: {},
+    props: [],
+    data() {
+      return {
+        loading: false,
+
+        text: "",
+        newText: "",
+        jurText: "# 0# 1000# 500# -360# 360# 0# 0# -360# -66#",
+
+        text1: "",
+        text2: "",
+        text3: "",
+        text4: "",
+        text5: "",
+      };
+    },
+    computed: {},
+    created() { },
+    mounted() { },
+    destroyed() { },
+    methods: {
+      compText() {
+        if (!this.text) {
+          return;
+        }
+
+        let data = this.text.split("\n");
+        let newData = [];
+        data.forEach(val => {
+          let item = val.split("	");
+          this.text1 += `${item[0]}\n`
+          this.text2 += `${item[1]}\n`
+          this.text3 += `${item[2]}\n`
+          this.text4 += `${item[3]}\n`
+          this.text5 += `${item[4]}\n`
+        });
+        this.loading = false;
+      }
+    },
+    watch: {},
+    filters: {},
+  })
+</script>
+
+</html>
