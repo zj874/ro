@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/element.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    {{ res }}
+  </div>
+</body>
+
+<script src="./js/babel.min.js"></script>
+<script src="./js/vue.min.js"></script>
+<script src="./js/element.js"></script>
+<script src="./js/axios.min.js"></script>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    name: "Login",
+    components: {},
+    props: [],
+    data() {
+      return {
+        loading: false,
+
+        res: null
+      };
+    },
+    computed: {},
+    created() {
+      this.exLogin();
+    },
+    mounted() { },
+    destroyed() { },
+    methods: {
+      async exLogin() {
+        axios
+          .post(
+            "http://172.20.14.128:8088/portal/r/jd",
+            // this.$qs.stringify(
+            {
+              cmd: "CONSOLE_ADMIN_LOGIN",
+              userid: "admin",
+              pwd: "3e9a4ca66481c3738407133e03b8efcf2886cd669cd2d93e608b230450443aebd572dc81844d364cf81571ce9d0392d5f0ca75c0ba0e0aebd2888a7fe1f040dde5a96dee0506378b35c7a5b789d3644b57dc01e6a4291b8fde9864e16d03c4bc1e796bb2a65d6fc056452cff6b3f7c47dac5f15024ffd9a3aacc7543e6cebfe4",
+              pwdEncode: "RSA",
+              lang: "cn",
+              timeZone: 8,
+              loginUrl:
+                "http%3A%2F%2F172.20.14.128%3A8088%2Fportal%2Fconsole%2F",
+            },
+            {
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            }
+            // )
+          )
+          .then((res) => {
+            this.res = res;
+            console.log(res);
+          })
+          .catch((err) => {
+            this.res = err;
+            console.log(err);
+          });
+      },
+    },
+    watch: {},
+    filters: {},
+  })
+</script>
+
+</html>
